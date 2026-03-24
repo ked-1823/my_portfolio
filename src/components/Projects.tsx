@@ -50,7 +50,7 @@ export default function Projects({ showAllProjects, setShowAllProjects }: Projec
               <div className="mt-8 flex gap-6 text-sm font-medium">
                 {project.projectSlug && (
                   <Link href={`/projects/${project.projectSlug}`} className="group/link inline-flex items-center gap-2 text-zinc-900">
-                    Case Study
+                    View Code
                     <span className="transition-transform group-hover/link:translate-x-1">→</span>
                   </Link>
                 )}

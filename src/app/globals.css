@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #18181b;
+  --grid-line: #e7e5e4;
+  color-scheme: light;
+}
+
+html.dark {
+  --background: #09090b;
+  --foreground: #e4e4e7;
+  --grid-line: #27272a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  transition: background-color 180ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a[href]:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid #18181b;
+  outline-offset: 2px;
+}
+
+html.dark a[href]:focus-visible,
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark textarea:focus-visible,
+html.dark select:focus-visible,
+html.dark [tabindex]:not([tabindex="-1"]):focus-visible {
+  outline-color: #e4e4e7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none !important;
+  }
+}
+
+html.dark .text-zinc-900 {
+  color: #f4f4f5 !important;
+}
+
+html.dark .text-zinc-700 {
+  color: #d4d4d8 !important;
+}
+
+html.dark .text-zinc-600,
+html.dark .text-zinc-500 {
+  color: #a1a1aa !important;
+}
+
+html.dark .text-zinc-400 {
+  color: #71717a !important;
+}
+
+html.dark .border-zinc-200,
+html.dark .border-zinc-200\/80 {
+  border-color: #27272a !important;
+}
+
+html.dark .border-zinc-300 {
+  border-color: #3f3f46 !important;
+}
+
+html.dark .bg-white {
+  background-color: #18181b !important;
+}
+
+html.dark .bg-white\/60,
+html.dark .bg-white\/80 {
+  background-color: rgb(24 24 27 / 0.72) !important;
+}
+
+html.dark .heading-wipe {
+  background-color: #09090b !important;
+}

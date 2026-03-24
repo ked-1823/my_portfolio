@@ -1,0 +1,32 @@
+---
+title: "Sleep Quality Prediction"
+summary: "Regression-driven model to estimate sleep quality from lifestyle and behavioral features, exposed through an API-first workflow."
+publishedAt: "2026-03-22"
+projectId: "sleep-quality-prediction"
+tags:
+  - "Regression"
+  - "Random Forest"
+  - "Feature Engineering"
+  - "FastAPI"
+readTime: "5 min read"
+---
+
+## Project objective
+
+Predict sleep quality score from daily habits (activity, routine timing, and health-related indicators) and provide actionable insights from feature behavior.
+
+## Modeling process
+
+- Performed exploratory analysis for missingness and skew.
+- Engineered and normalized predictive features.
+- Compared candidate regressors and selected a Random Forest baseline with tuned hyperparameters.
+
+## Outcome
+
+The model delivered reliable predictions on held-out data and was integrated into an API layer for quick experimentation and UI consumption.
+
+## Improvements planned
+
+- Add calibration and uncertainty estimates.
+- Expand dataset diversity for better generalization.
+- Include explainability outputs (feature importance + SHAP summary).

@@ -1,0 +1,31 @@
+---
+title: "Cat or Dog Classifier"
+summary: "CNN-based image classification model for identifying cats vs dogs, built with a clean training workflow and augmentation strategy."
+publishedAt: "2026-03-22"
+projectId: "cat-dog-classifier"
+tags:
+  - "Deep Learning"
+  - "CNN"
+  - "Computer Vision"
+  - "TensorFlow"
+readTime: "6 min read"
+---
+
+## Goal
+
+Build a lightweight image classifier that can accurately distinguish cats from dogs on unseen images.
+
+## Training design
+
+- Applied image augmentation for better generalization.
+- Used a CNN architecture with regularization.
+- Tracked training/validation curves to avoid overfitting.
+
+## Deployment path
+
+The model can be served behind a simple API endpoint and consumed by a small front-end uploader for live predictions.
+
+## Learnings
+
+- Data quality and augmentation balance strongly affect confidence.
+- Small architecture tweaks can significantly improve validation stability.

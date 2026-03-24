@@ -1,0 +1,33 @@
+---
+title: "Car Color Detection"
+summary: "Computer vision pipeline using YOLO detections plus color-space heuristics to identify dominant vehicle colors in images and videos."
+publishedAt: "2026-03-22"
+projectId: "car-color-detection"
+tags:
+  - "Computer Vision"
+  - "YOLO"
+  - "OpenCV"
+  - "Image Processing"
+readTime: "6 min read"
+---
+
+## Objective
+
+Detect vehicles and classify their most likely visible color in real-world scenes where lighting and reflections vary.
+
+## Pipeline
+
+1. Detect cars with a YOLO model.
+2. Crop each detected region of interest.
+3. Compute robust color features in HSV/LAB spaces.
+4. Map extracted features to predefined color labels.
+
+## Practical challenges
+
+- Metallic paint and glare can shift color distributions.
+- Shadows and headlights introduce severe variance.
+- Distant vehicles have low pixel density.
+
+## Result
+
+The workflow achieved stable color labeling on test samples and can be integrated into traffic analytics or surveillance dashboards.

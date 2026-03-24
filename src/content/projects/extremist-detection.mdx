@@ -1,0 +1,32 @@
+---
+title: "Extremist Detection"
+summary: "A supervised text classification pipeline for identifying extremist language with emphasis on precision, interpretability, and moderation-ready outputs."
+publishedAt: "2026-03-22"
+projectId: "extremist-detection"
+tags:
+  - "Python"
+  - "NLP"
+  - "Scikit-learn"
+  - "Model Evaluation"
+readTime: "6 min read"
+---
+
+## Problem
+
+Content moderation pipelines often struggle to separate harmful intent from neutral discussion. This project focused on building a classifier that prioritizes **precision** while preserving acceptable recall.
+
+## Approach
+
+- Built a clean preprocessing layer for token normalization.
+- Trained baseline and tuned models for comparison.
+- Used error analysis to reduce false positives on ambiguous phrasing.
+
+## Results
+
+The final model produced stable performance across validation folds and was wrapped in a reusable inference utility for downstream moderation workflows.
+
+## What I learned
+
+- Label quality matters more than model complexity in early iterations.
+- Threshold tuning is critical for practical moderation outcomes.
+- Clear failure-case analysis speeds up model improvement.

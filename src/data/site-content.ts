@@ -4,7 +4,7 @@ export type Project = {
   impact: string;
   tags: string[];
   featured: boolean;
-  caseStudySlug?: string;
+  projectSlug?: string;
   liveUrl?: string;
   sourceUrl?: string;
 };

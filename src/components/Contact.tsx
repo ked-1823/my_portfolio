@@ -100,13 +100,13 @@ export default function Contact() {
             <h2 className="text-3xl font-medium tracking-tight text-zinc-900 mb-4">
               <HeadingWipe className="bg-white">Let&apos;s connect.</HeadingWipe>
             </h2>
-            <p className="text-zinc-600 mb-8 max-w-sm">
-              {siteContent.identity.availability} I typically respond within {siteContent.contact.responseTime.toLowerCase()}.
+            <p className="text-zinc-600 mb-8 max-w-sm text-sm sm:text-base leading-relaxed">
+              {siteContent.identity.availability} {siteContent.contact.responseTime}
             </p>
 
-            <div className="flex flex-col gap-4 text-sm font-medium">
+            <div className="flex min-w-0 flex-col gap-4 text-sm font-medium">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <a href={"mailto:" + siteContent.contact.email} className="text-zinc-900 hover:text-zinc-500 transition-colors w-fit">
+                <a href={"mailto:" + siteContent.contact.email} className="min-w-0 max-w-full break-all text-zinc-900 hover:text-zinc-500 transition-colors w-fit">
                   {siteContent.contact.email}
                 </a>
                 <button
@@ -122,9 +122,9 @@ export default function Contact() {
                   </svg>
                 </button>
               </div>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-x-4 gap-y-2">
                 {siteContent.contact.socialLinks.map(link => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 transition-colors w-fit">
+                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 transition-colors w-fit break-words">
                     {link.label}
                   </a>
                 ))}

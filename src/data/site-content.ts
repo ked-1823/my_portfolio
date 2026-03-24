@@ -102,7 +102,7 @@ export const siteContent = {
       title: "LifeScreen Analytics",
       impact: "A web application that analyzes smartphone usage patterns and predicts the risk of mobile addiction using machine learning..",
       tags: ["ML", "Data Analysis", "Web App"],
-      featured: false,
+      featured: true,
       projectSlug: "life-screen-analytics",
       sourceUrl: "https://github.com/ked-1823/LifeScreen-Analytics",
     },

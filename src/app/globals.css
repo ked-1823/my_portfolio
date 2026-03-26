@@ -95,3 +95,40 @@ html.dark .bg-white\/80 {
 html.dark .heading-wipe {
   background-color: #09090b !important;
 }
+
+.skip-link {
+  position: fixed;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 100;
+  transform: translateY(-140%);
+  border-radius: 0.5rem;
+  border: 1px solid #d4d4d8;
+  background: #ffffff;
+  color: #18181b;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+html.dark .skip-link {
+  border-color: #3f3f46;
+  background: #18181b;
+  color: #f4f4f5;
+}
+
+html.dark .contact-social-tooltip {
+  border-color: #3f3f46 !important;
+  background-color: #18181b !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark .contact-submit-button {
+  background-color: #fafafa !important;
+  color: #18181b !important;
+}

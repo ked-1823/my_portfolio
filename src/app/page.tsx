@@ -235,6 +235,13 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen selection:bg-zinc-200">
+      <a
+        href="#main-content"
+        className="skip-link"
+      >
+        Skip to main content
+      </a>
+
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -314,36 +321,38 @@ export default function Home() {
         navLinkRefs={navLinkRefs}
       />
 
-      <Hero theme={theme} heroPhotoAnchorRef={heroPhotoAnchorRef} scrollToSection={scrollToSection} />
+      <div id="main-content">
+        <Hero theme={theme} heroPhotoAnchorRef={heroPhotoAnchorRef} scrollToSection={scrollToSection} />
 
-      <div
-        className={`pointer-events-none fixed z-[60] overflow-hidden rounded-full bg-zinc-100 transition-[box-shadow,border-color] duration-300 ${isDockEmphasized ? 'border border-zinc-400 shadow-[0_6px_20px_rgba(24,24,27,0.18)]' : 'border border-zinc-200 shadow-sm'}`}
-        style={{
-          left: photoMorphStyle.x,
-          top: photoMorphStyle.y,
-          width: photoMorphStyle.size,
-          height: photoMorphStyle.size,
-          opacity: photoMorphStyle.opacity,
-          transition: hasUserScrolledRef.current
-            ? `left ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), top ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), width ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), height ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1)`
-            : "none",
-        }}
-        aria-hidden="true"
-      >
-        <Image
-          src={profilePic}
-          placeholder="blur"
-          alt={`${siteContent.identity.name} profile`}
-          fill
-          sizes="160px"
-          className="h-full w-full object-cover grayscale"
-        />
+        <div
+          className={`pointer-events-none fixed z-[60] overflow-hidden rounded-full bg-zinc-100 transition-[box-shadow,border-color] duration-300 ${isDockEmphasized ? 'border border-zinc-400 shadow-[0_6px_20px_rgba(24,24,27,0.18)]' : 'border border-zinc-200 shadow-sm'}`}
+          style={{
+            left: photoMorphStyle.x,
+            top: photoMorphStyle.y,
+            width: photoMorphStyle.size,
+            height: photoMorphStyle.size,
+            opacity: photoMorphStyle.opacity,
+            transition: hasUserScrolledRef.current
+              ? `left ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), top ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), width ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), height ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1)`
+              : "none",
+          }}
+          aria-hidden="true"
+        >
+          <Image
+            src={profilePic}
+            placeholder="blur"
+            alt={`${siteContent.identity.name} profile`}
+            fill
+            sizes="160px"
+            className="h-full w-full object-cover grayscale"
+          />
+        </div>
+
+        <Projects showAllProjects={showAllProjects} setShowAllProjects={setShowAllProjects} />
+        <Experience />
+        <About theme={theme} />
+        <Contact />
       </div>
-
-      <Projects showAllProjects={showAllProjects} setShowAllProjects={setShowAllProjects} />
-      <Experience />
-      <About theme={theme} />
-      <Contact />
 
       <footer className="relative z-10 border-t border-zinc-200">
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-8 text-xs text-zinc-500 md:flex-row md:items-center md:justify-between md:px-8">
@@ -352,6 +361,18 @@ export default function Home() {
             <span>Built with Next.js</span>
             <span aria-hidden="true">&bull;</span>
             <span>Last updated: Mar 2026</span>
+            <span aria-hidden="true">&bull;</span>
+            <span>
+              Background pattern powered by {" "}
+              <a
+                href="https://patterncraft.fun"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-opacity hover:opacity-80"
+              >
+                PatternCraft.fun
+              </a>
+            </span>
           </div>
         </div>
       </footer>

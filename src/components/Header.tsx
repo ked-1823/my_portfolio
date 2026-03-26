@@ -67,7 +67,7 @@ export default function Header({
                       e.preventDefault();
                       scrollToSection(item.id as "hero" | "work" | "experience" | "about" | "contact");
                     }}
-                    className={`relative pb-1 transition-colors duration-200 ${
+                    className={`relative inline-flex min-h-11 items-center pb-1 pt-1 transition-colors duration-200 md:min-h-0 md:pt-0 ${
                       isActive ? "text-zinc-900 font-medium" : "text-zinc-500 hover:text-zinc-900"
                     }`}
                   >
@@ -92,10 +92,10 @@ export default function Header({
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             title={theme === "dark" ? "Light mode" : "Dark mode"}
-            className={`inline-flex h-8 w-8 items-center justify-center rounded-full border transition-colors ${
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70 focus-visible:ring-offset-2 motion-reduce:transition-none md:h-8 md:w-8 ${
               theme === "dark"
-                ? "border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-zinc-100"
-                : "border-zinc-200 text-zinc-500 hover:border-zinc-300 hover:text-zinc-700"
+                ? "border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-zinc-100 focus-visible:ring-offset-zinc-950"
+                : "border-zinc-200 text-zinc-500 hover:border-zinc-300 hover:text-zinc-700 focus-visible:ring-offset-[#f9fafb]"
             }`}
           >
             <span className="relative h-4 w-4">

@@ -215,6 +215,7 @@ export const siteContent = {
       { label: "GitHub", href: "https://github.com/ked-1823" },
       { label: "Kaggle", href: "https://www.kaggle.com/kedarnathmane" },
       { label: "LeetCode", href: "https://leetcode.com/u/kedar1823/" },
+      { label: "Hugging Face", href: "https://huggingface.co/Kedar18" },
       { label: "Twitter", href: "https://www.x.com/kedar1823" },
     ],
   },

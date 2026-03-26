@@ -195,16 +195,6 @@ To switch forms, replace this endpoint value.
 
 ---
 
-## Roadmap Tracking
-
-Task tracking lives in:
-
-- `plan.md`
-
-Includes original roadmap and V2 polish backlog.
-
----
-
 ## Contribution / Maintenance Tips
 
 - Prefer content changes in `site-content.ts` over hardcoding UI text.

@@ -1,0 +1,32 @@
+---
+title: "Clickbait Detector"
+summary: "NLP classifier to detect clickbait headlines by learning lexical and stylistic patterns common in sensational content."
+publishedAt: "2026-03-22"
+projectId: "clickbait-detector"
+tags:
+  - "NLP"
+  - "Classification"
+  - "Feature Engineering"
+  - "Scikit-learn"
+readTime: "6 min read"
+---
+
+## Why this project
+
+Clickbait headlines distort content quality and trust. The aim was to automatically flag likely clickbait for moderation or ranking adjustments.
+
+## Modeling strategy
+
+- Constructed a labeled headline dataset.
+- Extracted text features capturing intensity and phrasing style.
+- Trained classifiers and compared precision-recall tradeoffs.
+
+## Outcome
+
+The model captured recurring clickbait patterns effectively and can support editorial quality control workflows.
+
+## Next steps
+
+- Add transformer-based embeddings.
+- Include confidence calibration.
+- Evaluate drift over newly collected headlines.

@@ -1,0 +1,32 @@
+---
+title: "Mental Health Detection (Text)"
+summary: "End-to-end NLP classification service using FastAPI and transformer-based text embeddings to identify mental-health related risk categories."
+publishedAt: "2026-03-22"
+projectId: "mental-health-detection"
+tags:
+  - "FastAPI"
+  - "HuggingFace"
+  - "NLP"
+  - "Deployment"
+readTime: "7 min read"
+---
+
+## Goal
+
+Create a deployable service that can classify user text into predefined mental-health categories to support triage and analytics workflows.
+
+## System design
+
+1. Text input API with validation and rate-safe request handling.
+2. Inference pipeline with preprocessing + model scoring.
+3. Structured response format for confidence-aware client rendering.
+
+## Deployment notes
+
+The API was tested as a lightweight service with clear input/output contracts, enabling easy integration into front-end and dashboard tools.
+
+## Key takeaways
+
+- Serving ML models is as much API design as it is model quality.
+- Deterministic preprocessing improves production consistency.
+- Model confidence should be exposed explicitly for safe usage.

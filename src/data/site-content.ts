@@ -21,10 +21,12 @@ export const siteContent = {
   identity: {
     name: "Kedar Mane",
     role: "Data Science & Machine Learning",
-    headline: "Transforming raw data into meaningful insights and deployable ML models.",
+    headline:
+      "Transforming raw data into meaningful insights and deployable ML models.",
     summary:
       "I am a 3rd-year B.Tech student focused on Data Science and applied Machine Learning. I build data-driven models using real-world datasets, specializing in NLP, computer vision, and predictive analytics.",
-    availability: "Actively building data science capabilities through hands-on projects.",
+    availability:
+      "Actively building data science capabilities through hands-on projects.",
     recruiterCta: "/resume.pdf",
   },
   trustHighlights: [
@@ -41,6 +43,18 @@ export const siteContent = {
   ],
   experience: [
     {
+      company: "Peepri Apparels",
+      role: "AI & Brand Design Intern",
+      period: "Apr 2026 - Present",
+      outcomes: [
+        "Developed AI-powered fashion and branding content using generative AI tools and prompt engineering.",
+        "Created T-shirt designs and AI-generated model visuals to support product marketing and brand campaigns.",
+        "Managed Shopify store operations, including product listings, catalog updates, and content optimization.",
+        "Designed and published Instagram content to enhance brand visibility and audience engagement.",
+        "Assisted in email marketing campaigns and promotional content creation to support customer outreach.",
+      ],
+    },
+    {
       company: "NullClass",
       role: "Junior Data Science Intern",
       period: "Internship",
@@ -50,6 +64,7 @@ export const siteContent = {
         "Gained hands-on experience evaluating and deploying data-driven solutions.",
       ],
     },
+    //
     {
       company: "IBM Cognitive Class",
       role: "Data Analysis with Python",
@@ -98,9 +113,21 @@ export const siteContent = {
   ] as ExperienceItem[],
   projects: [
     {
+      id: "personal-knowledge-assistant",
+      title: "RAG-Based Personal Knowledge Assistant",
+      impact:
+        "Built a Retrieval-Augmented Generation (RAG) system that transforms PDFs into a searchable knowledge base, enabling context-aware question answering through semantic retrieval and LLM-powered responses.",
+      tags: ["RAG", "LLM", "FastAPI", "Next.js", "ChromaDB", "LangChain"],
+      featured: true,
+      projectSlug: "personal-knowledge-assistant",
+      sourceUrl: "https://github.com/ked-1823/rag-personal-knowledge-assistant",
+    },
+
+    {
       id: "LifeScreen-Analytics",
       title: "LifeScreen Analytics",
-      impact: "A web application that analyzes smartphone usage patterns and predicts the risk of mobile addiction using machine learning..",
+      impact:
+        "A web application that analyzes smartphone usage patterns and predicts the risk of mobile addiction using machine learning..",
       tags: ["ML", "Data Analysis", "Web App"],
       featured: true,
       projectSlug: "lifescreen-analytics",
@@ -124,7 +151,8 @@ export const siteContent = {
       tags: ["Python", "NLP", "FastAPI", "HuggingFace"],
       featured: true,
       projectSlug: "mental-health-detection",
-      sourceUrl: "https://github.com/ked-1823/text-identification-fastapi-project",
+      sourceUrl:
+        "https://github.com/ked-1823/text-identification-fastapi-project",
     },
     {
       id: "sleep-quality-prediction",
@@ -132,7 +160,7 @@ export const siteContent = {
       impact:
         "Created a Random Forest Regression model to predict sleep quality based on daily lifestyle metrics, deployed via FastAPI.",
       tags: ["Python", "ML", "Regression", "FastAPI"],
-      featured: true,
+      featured: false,
       projectSlug: "sleep-quality-prediction",
       sourceUrl: "https://github.com/ked-1823/Sleep-quality-ui-using-fastapi",
     },
@@ -142,7 +170,7 @@ export const siteContent = {
       impact:
         "Implemented a YOLO-based computer vision model to detect cars dynamically and classify their colors in images/video.",
       tags: ["ML", "Computer Vision", "YOLO"],
-      featured: true,
+      featured: false,
       projectSlug: "car-color-detection",
       sourceUrl: "https://github.com/ked-1823/car_color_detection",
     },
@@ -158,7 +186,8 @@ export const siteContent = {
     {
       id: "cat-dog-classifier",
       title: "Cat or Dog Classifier",
-      impact: "CNN-based image classifier to automatically categorize images as either cats or dogs.",
+      impact:
+        "CNN-based image classifier to automatically categorize images as either cats or dogs.",
       tags: ["ML", "Computer Vision"],
       featured: false,
       projectSlug: "cat-dog-classifier",
@@ -167,25 +196,18 @@ export const siteContent = {
     {
       id: "clickbait-detector",
       title: "Clickbait Detector",
-      impact: "Built a machine learning model to effectively detect clickbait headlines in news and articles.",
+      impact:
+        "Built a machine learning model to effectively detect clickbait headlines in news and articles.",
       tags: ["ML", "NLP"],
       featured: false,
       projectSlug: "clickbait-detector",
       sourceUrl: "https://github.com/ked-1823/clickbait-detector-project",
     },
     {
-      id: "is-criminal",
-      title: "Is-Criminal Text Classification",
-      impact: "A text classification project that predicts whether a given news article or text is related to criminal activity.",
-      tags: ["ML", "NLP"],
-      featured: false,
-      projectSlug: "is-criminal",
-      sourceUrl: "https://github.com/ked-1823/is-criminal-mini-project",
-    },
-    {
       id: "ipl-data-analysis",
       title: "IPL Data Analysis",
-      impact: "Exploratory Data Analysis of IPL matches and historical player performance statistics.",
+      impact:
+        "Exploratory Data Analysis of IPL matches and historical player performance statistics.",
       tags: ["ML", "Data Analysis"],
       featured: false,
       projectSlug: "ipl-data-analysis",

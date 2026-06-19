@@ -18,9 +18,12 @@ interface ProjectsProps {
 
 export default function Projects({ showAllProjects, setShowAllProjects }: ProjectsProps) {
   const displayedProjects = useMemo(
-    () => (showAllProjects ? projects : projects.filter((project) => project.featured)),
-    [showAllProjects]
-  );
+  () =>
+    showAllProjects
+      ? projects
+      : projects.filter((project) => project.featured).slice(0, 4),
+  [showAllProjects]
+);
 
   return (
     <section id="work" className="relative z-10 mx-auto max-w-5xl px-6 py-20 md:px-8 md:py-32 scroll-mt-20">

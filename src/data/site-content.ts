@@ -24,7 +24,7 @@ export const siteContent = {
     headline:
       "Transforming raw data into meaningful insights and deployable ML models.",
     summary:
-      "I am a 3rd-year B.Tech student focused on Data Science and applied Machine Learning. I build data-driven models using real-world datasets, specializing in NLP, computer vision, and predictive analytics.",
+      "I am a 4th-year B.Tech student focused on Data Science and applied Machine Learning. I build data-driven models using real-world datasets, specializing in NLP, computer vision, and predictive analytics.",
     availability:
       "Actively building data science capabilities through hands-on projects.",
     recruiterCta: "/resume.pdf",

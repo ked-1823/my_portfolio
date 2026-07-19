@@ -1,0 +1,142 @@
+---
+title: "RAG-Based Personal Knowledge Assistant"
+description: "A full-stack Retrieval-Augmented Generation (RAG) application that transforms PDF documents into an interactive AI-powered knowledge base using semantic search and large language models."
+github: "https://github.com/ked-1823/rag-personal-knowledge-assistant"
+tags: ["RAG", "LLM", "FastAPI", "Next.js", "ChromaDB", "LangChain"]
+readTime: "7 min read"
+---
+
+## Problem
+
+Traditional chatbots lack knowledge of private documents and often generate responses without context. Users need an intelligent assistant capable of understanding uploaded PDFs and answering questions accurately based only on the document's content.
+
+---
+
+## Solution
+
+Built a full-stack **Retrieval-Augmented Generation (RAG)** application that allows users to upload PDF documents and interact with them through a conversational AI interface.
+
+The system extracts text from uploaded documents, converts it into vector embeddings, stores it in **ChromaDB**, retrieves the most relevant information for each query using semantic search, and generates grounded responses through a Large Language Model.
+
+---
+
+## Architecture
+
+```text
+User Uploads PDF
+        ↓
+Text Extraction
+        ↓
+Intelligent Chunking
+        ↓
+Generate Embeddings
+        ↓
+Store in ChromaDB
+        ↓
+User Question
+        ↓
+Semantic Retrieval
+        ↓
+LLM Generation
+        ↓
+Grounded Answer
+```
+
+---
+
+## Key Features
+
+- 📄 Upload and process PDF documents
+- ✂️ Intelligent text chunking for efficient retrieval
+- 🧠 Semantic embeddings using OpenAI Embeddings
+- 🔍 Context-aware semantic search with ChromaDB
+- 🤖 AI-powered question answering using OpenRouter LLMs
+- 💬 Interactive chat interface built with Next.js
+- 🗂 Session-based document memory
+- ⚡ FastAPI REST API backend
+- 🎨 Responsive and modern frontend
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+
+- FastAPI
+- LangChain
+- OpenRouter API
+- OpenAI Embeddings
+
+### Database
+
+- ChromaDB (Vector Database)
+
+---
+
+## API Endpoints
+
+| Method | Endpoint | Purpose |
+|---------|----------|----------|
+| GET | `/` | Health Check |
+| POST | `/upload` | Upload PDF |
+| POST | `/chat` | Ask Questions |
+| GET | `/history` | Retrieve Chat History |
+
+---
+
+## Challenges Solved
+
+- Designed an end-to-end Retrieval-Augmented Generation pipeline from scratch.
+- Implemented semantic document retrieval using vector embeddings.
+- Connected a FastAPI backend with a modern Next.js frontend.
+- Managed session-based conversations for uploaded documents.
+- Optimized text chunking to improve retrieval accuracy and answer quality.
+- Built a scalable architecture separating document ingestion, retrieval, and generation.
+
+---
+
+## Results
+
+- Successfully transformed PDF documents into searchable knowledge bases.
+- Enabled context-aware AI responses grounded in uploaded content.
+- Reduced hallucinations by retrieving relevant document chunks before LLM generation.
+- Delivered a complete full-stack AI application with both frontend and backend deployment.
+
+---
+
+## What I Learned
+
+- Retrieval-Augmented Generation (RAG) architecture
+- Vector databases and semantic search
+- Embedding generation and similarity retrieval
+- LangChain workflows
+- FastAPI backend development
+- Building scalable AI APIs
+- Next.js application development
+- Full-stack deployment of AI applications
+
+---
+
+## Future Improvements
+
+- Multi-document knowledge base
+- Source citations for every response
+- Streaming AI responses
+- User authentication
+- Cloud storage integration
+- Docker support
+- Production-scale deployment
+
+---
+
+## Repository
+
+👉 **GitHub:**  
+https://github.com/ked-1823/rag-personal-knowledge-assistant

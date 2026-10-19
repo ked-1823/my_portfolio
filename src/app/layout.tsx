@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kedarmane.me"),
-  title: "Kedar Mane | Data Science & Machine Learning",
+  title: "Kedar Mane | AI/ML & Software Development",
   description: "Portfolio of Kedar Mane featuring Data Science, Machine Learning, NLP, and computer vision projects.",
   icons: {
     icon: [

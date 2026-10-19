@@ -2,45 +2,78 @@ import { siteContent, type ExperienceItem } from "@/data/site-content";
 import { FadeIn, HeadingWipe, ExpBulletPoint } from "@/components/ui/Animation";
 
 const experience: ExperienceItem[] = siteContent.experience;
+const professionalExperience = experience.filter((item) => item.role.includes("Intern"));
+const credentials = experience.filter((item) => !item.role.includes("Intern"));
 
 export default function Experience() {
   return (
     <section id="experience" className="relative z-10 mx-auto max-w-5xl px-6 py-20 md:px-8 md:py-32 scroll-mt-20 border-t border-zinc-200">
       <h2 className="text-sm font-semibold tracking-wide uppercase text-zinc-400 mb-12"><HeadingWipe>Experience</HeadingWipe></h2>
 
-      <div className="flex flex-col gap-12">
-        {experience.map((item) => (
-          <FadeIn key={`${item.company}-${item.role}`} className="grid md:grid-cols-[1fr_2fr] gap-4 md:gap-12 items-baseline">
-            <div className="text-zinc-500 text-sm mt-1">
-              {item.period}
-            </div>
-
-            <div>
-              <div className="flex flex-wrap items-baseline gap-x-4 mb-1 border-b border-transparent">
-                <h3 className="text-lg font-medium text-zinc-900">{item.role}</h3>
+      <div className="space-y-14">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {professionalExperience.map((item) => (
+            <FadeIn
+              key={`${item.company}-${item.role}`}
+              className="rounded-2xl border border-white/70 bg-white/80 p-6 shadow-[0_10px_28px_rgba(74,15,20,0.08)] transition-colors hover:border-white dark:border-zinc-800/80 dark:bg-zinc-950/25 dark:shadow-none dark:hover:border-zinc-700"
+            >
+              <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500">{item.period}</p>
+                  <h3 className="text-lg font-medium text-zinc-900">{item.role}</h3>
+                  <p className="mt-1 text-zinc-500">{item.company}</p>
+                </div>
                 {item.link && (
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-[11px] font-semibold text-zinc-400 hover:text-zinc-900 transition-colors uppercase tracking-wider"
+                    className="inline-flex items-center text-[11px] font-semibold uppercase tracking-wider text-zinc-400 transition-colors hover:text-zinc-900"
                   >
                     View Details ↗
                   </a>
                 )}
               </div>
-              <p className="text-zinc-500 mb-4">{item.company}</p>
-              <ul className="space-y-3 text-zinc-600 text-base leading-relaxed">
+              <ul className="space-y-2 text-sm leading-relaxed text-zinc-600">
                 {item.outcomes.map((outcome) => (
                   <li key={outcome} className="flex items-start gap-3">
-                    <ExpBulletPoint className="bg-zinc-400" />
+                    <ExpBulletPoint className="mt-1 bg-zinc-400" />
                     <span>{outcome}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-          </FadeIn>
-        ))}
+            </FadeIn>
+          ))}
+        </div>
+
+        <div>
+          <p className="mb-5 text-xs font-semibold uppercase tracking-wider text-zinc-400">Certifications & Activities</p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {credentials.map((item) => (
+              <FadeIn
+                key={`${item.company}-${item.role}`}
+                className="rounded-xl border border-white/70 bg-white/80 p-5 shadow-[0_8px_22px_rgba(74,15,20,0.06)] transition-colors hover:border-white dark:border-zinc-800/70 dark:bg-zinc-950/20 dark:shadow-none dark:hover:border-zinc-700"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">{item.period}</p>
+                  {item.link && (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 transition-colors hover:text-zinc-900"
+                    >
+                      View Details ↗
+                    </a>
+                  )}
+                </div>
+                <h3 className="mt-3 text-base font-medium text-zinc-900">{item.role}</h3>
+                <p className="mt-1 text-sm text-zinc-500">{item.company}</p>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600">{item.outcomes.join(" ")}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

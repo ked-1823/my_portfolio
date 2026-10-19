@@ -38,6 +38,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<(typeof sectionIds)[number]>("hero");
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [hasUserScrolled, setHasUserScrolled] = useState(false);
   const [photoMorphStyle, setPhotoMorphStyle] = useState({
     x: 0,
     y: 0,
@@ -87,7 +88,7 @@ export default function Home() {
 
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
     window.localStorage.setItem(THEME_STORAGE_KEY, initialTheme);
-    setTheme(initialTheme);
+    window.queueMicrotask(() => setTheme(initialTheme));
     hasInitializedThemeRef.current = true;
   }, []);
 
@@ -98,8 +99,6 @@ export default function Home() {
   }, [theme]);
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight * 0.4;
       const totalScrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -111,6 +110,7 @@ export default function Home() {
       }
       if (!hasUserScrolledRef.current && Math.abs(window.scrollY - scrollInitYRef.current) > MOTION.userScrollThresholdPx) {
         hasUserScrolledRef.current = true;
+        setHasUserScrolled(true);
       }
 
       const enterDockY = Math.max(MOTION.dockEnterMinPx, window.innerHeight * MOTION.dockEnterViewportRatio);
@@ -242,6 +242,8 @@ export default function Home() {
         Skip to main content
       </a>
 
+      <div className="theme-art-background" aria-hidden="true" />
+
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -332,7 +334,7 @@ export default function Home() {
             width: photoMorphStyle.size,
             height: photoMorphStyle.size,
             opacity: photoMorphStyle.opacity,
-            transition: hasUserScrolledRef.current
+            transition: hasUserScrolled
               ? `left ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), top ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), width ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1), height ${MOTION.dockTransitionMs}ms cubic-bezier(0.22, 1, 0.36, 1)`
               : "none",
           }}
@@ -348,8 +350,8 @@ export default function Home() {
           />
         </div>
 
-        <Projects showAllProjects={showAllProjects} setShowAllProjects={setShowAllProjects} />
         <Experience />
+        <Projects showAllProjects={showAllProjects} setShowAllProjects={setShowAllProjects} />
         <About theme={theme} />
         <Contact />
       </div>

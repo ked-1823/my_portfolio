@@ -33,7 +33,7 @@ export default function Header({
   navLinkRefs,
 }: HeaderProps) {
   return (
-    <header className={`fixed top-0 z-50 w-full backdrop-blur-md border-b transition-colors ${theme === "dark" ? "bg-zinc-950/80 border-zinc-800" : "bg-[#f9fafb]/80 border-zinc-200"}`}>
+    <header className={`fixed top-0 z-50 w-full border-b transition-colors ${theme === "dark" ? "bg-zinc-950/35 backdrop-blur-sm border-zinc-800/70" : "bg-[#f9fafb]/80 backdrop-blur-md border-zinc-200"}`}>
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 md:px-8">
         <a
           href="#hero"

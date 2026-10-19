@@ -20,11 +20,11 @@ export type ExperienceItem = {
 export const siteContent = {
   identity: {
     name: "Kedar Mane",
-    role: "Data Science & Machine Learning",
+    role: "AI/ML & Software Development",
     headline:
-      "Transforming raw data into meaningful insights and deployable ML models.",
+      "Curious about data, driven by code, building across the tech stack",
     summary:
-      "I am a 4th-year B.Tech student focused on Data Science and applied Machine Learning. I build data-driven models using real-world datasets, specializing in NLP, computer vision, and predictive analytics.",
+      "I’m a 4th-year B.Tech student exploring AI/ML and software development, building practical projects across machine learning, backend systems, APIs, and databases.",
     availability:
       "Actively building data science capabilities through hands-on projects.",
     recruiterCta: "/resume.pdf",
@@ -43,21 +43,31 @@ export const siteContent = {
   ],
   experience: [
     {
-      company: "Peepri Apparels",
-      role: "AI & Brand Design Intern",
-      period: "Apr 2026 - Present",
+      company: "Udyog Suvidha Kendra (USK)",
+      role: "Backend Developer Intern (Paid Internship)",
+      period: "Oct 2026 - Present",
       outcomes: [
-        "Developed AI-powered fashion and branding content using generative AI tools and prompt engineering.",
-        "Created T-shirt designs and AI-generated model visuals to support product marketing and brand campaigns.",
-        "Managed Shopify store operations, including product listings, catalog updates, and content optimization.",
-        "Designed and published Instagram content to enhance brand visibility and audience engagement.",
-        "Assisted in email marketing campaigns and promotional content creation to support customer outreach.",
+        "Developing backend services and RESTful APIs for practical applications.",
+        "Working with databases, SQL queries, and backend integrations.",
+        "Testing and debugging APIs while writing secure, maintainable code.",
+        "Collaborating with frontend developers and using Git for reliable delivery.",
+      ],
+    },
+    {
+      company: "Peepri Apparels",
+      role: "AI & Brand Design Intern (Paid Internship)",
+      period: "Apr 2026 - Sept 2026",
+      outcomes: [
+        "Created AI-powered fashion and branding content using generative AI and prompt engineering.",
+        "Designed T-shirts and AI-generated visuals for product marketing campaigns.",
+        "Managed Shopify listings, catalog updates, and content optimization.",
+        "Created Instagram and email marketing content to support brand growth.",
       ],
     },
     {
       company: "NullClass",
       role: "Junior Data Science Intern",
-      period: "Internship",
+      period: "Aug 2025 - Sept 2025",
       link: "/images/nullclass_internship.jpg",
       outcomes: [
         "Worked on practical data science problems and applied machine learning models.",
@@ -216,7 +226,7 @@ export const siteContent = {
   ] as Project[],
   about: {
     description:
-      "I believe in the power of data to uncover hidden patterns and drive decisions. My approach to Machine Learning balances model accuracy with real-world practicality, ensuring the solutions I build are understandable and easy to deploy.",
+      "I enjoy solving problems through code and exploring how technology can turn ideas into practical solutions. From AI/ML and data analysis to backend development, APIs, and databases, I focus on building projects that are useful, reliable, and easy to work with.",
     workingStyle: [
       "Understand the data deeply before modeling.",
       "Prefer clean, explainable models when possible.",

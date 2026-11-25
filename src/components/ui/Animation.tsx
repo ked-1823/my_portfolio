@@ -40,28 +40,6 @@ export function HeadingWipe({ children, className, delay = 0 }: AnimatedProps) {
   );
 }
 
-export function StaggerParent({ children, className }: AnimatedProps) {
-  return (
-    <motion.ul
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      variants={{
-        hidden: { opacity: 0 },
-        show: {
-          opacity: 1,
-          transition: {
-            staggerChildren: 0.035,
-          },
-        },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.ul>
-  );
-}
-
 export function ExpBulletPoint({ className }: Omit<AnimatedProps, "children">) {
   return (
     <motion.span

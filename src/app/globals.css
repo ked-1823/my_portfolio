@@ -147,8 +147,10 @@ html.dark .theme-art-background {
 
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 a[href]:focus-visible,
@@ -209,6 +211,14 @@ html.dark .bg-white {
 html.dark .bg-white\/60,
 html.dark .bg-white\/80 {
   background-color: rgb(24 24 27 / 0.72) !important;
+}
+
+html.dark .hover\:bg-zinc-50:hover {
+  background-color: rgb(39 39 42 / 0.85) !important;
+}
+
+html.dark .bg-zinc-200 {
+  background-color: #27272a !important;
 }
 
 html.dark .heading-wipe {

@@ -23,9 +23,20 @@ export default function About({ theme }: AboutProps) {
             <div>
               <h3 className="font-medium text-zinc-900 mb-4">Core Focus</h3>
               <ul className="space-y-2 text-zinc-600">
-                {siteContent.about.strengths.map(strength => (
-                  <li key={strength}>{strength}</li>
-                ))}
+                {siteContent.about.strengths.map((strength) => {
+                  const colonIndex = strength.indexOf(":");
+                  if (colonIndex === -1) {
+                    return <li key={strength}>{strength}</li>;
+                  }
+                  const category = strength.slice(0, colonIndex + 1);
+                  const details = strength.slice(colonIndex + 1);
+                  return (
+                    <li key={strength}>
+                      <span className="font-medium text-zinc-900">{category}</span>
+                      {details}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div>

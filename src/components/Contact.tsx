@@ -135,7 +135,7 @@ export default function Contact() {
         <div className="grid gap-10 md:grid-cols-[1fr_1.25fr] md:gap-16">
           <div>
             <h2 className="text-3xl font-medium tracking-tight text-zinc-900 mb-4">
-              <HeadingWipe className="bg-white">Let&apos;s connect.</HeadingWipe>
+              <HeadingWipe>Let&apos;s connect.</HeadingWipe>
             </h2>
             <p className="text-zinc-600 mb-8 max-w-sm text-sm sm:text-base leading-relaxed">
               {siteContent.identity.availability} {siteContent.contact.responseTime}
@@ -149,14 +149,20 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  aria-label="Copy email"
-                  title="Copy email"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white motion-reduce:transition-none sm:h-8 sm:w-8"
+                  aria-label={copyState === "copied" ? "Email copied" : "Copy email"}
+                  title={copyState === "copied" ? "Copied!" : "Copy email"}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 motion-reduce:transition-none sm:h-8 sm:w-8"
                 >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true">
-                    <rect x="9" y="9" width="11" height="11" rx="2" />
-                    <path d="M5 15V6a2 2 0 0 1 2-2h9" />
-                  </svg>
+                  {copyState === "copied" ? (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4 text-emerald-500" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4" aria-hidden="true">
+                      <rect x="9" y="9" width="11" height="11" rx="2" />
+                      <path d="M5 15V6a2 2 0 0 1 2-2h9" />
+                    </svg>
+                  )}
                 </button>
               </div>
               <div className="flex flex-wrap items-center gap-x-2 gap-y-4 sm:gap-x-3 sm:gap-y-5">
@@ -202,6 +208,8 @@ export default function Contact() {
                 value={contactState.name}
                 onChange={(e) => updateContactField("name", e.target.value)}
                 onBlur={() => setTouched(p => ({ ...p, name: true }))}
+                aria-invalid={Boolean(touched.name && fieldErrors.name)}
+                aria-describedby={touched.name && fieldErrors.name ? "name-error" : undefined}
                 className={cn(
                   "peer w-full border-b bg-transparent py-3 text-base text-zinc-900 placeholder-transparent outline-none transition-colors",
                   touched.name && fieldErrors.name ? "border-rose-400 focus:border-rose-500" : "border-zinc-300 focus:border-zinc-900"
@@ -219,7 +227,7 @@ export default function Contact() {
               </label>
               <span className={cn("pointer-events-none absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 ease-out group-focus-within:scale-x-100", touched.name && fieldErrors.name ? "bg-rose-500/70" : "bg-zinc-900/70")} />
               {touched.name && fieldErrors.name && (
-                <span className="absolute -bottom-5 left-0 text-[11px] text-rose-500 font-medium">{fieldErrors.name[0]}</span>
+                <span id="name-error" className="absolute -bottom-5 left-0 text-[11px] text-rose-500 font-medium">{fieldErrors.name[0]}</span>
               )}
             </div>
 
@@ -232,6 +240,8 @@ export default function Contact() {
                 value={contactState.email}
                 onChange={(e) => updateContactField("email", e.target.value)}
                 onBlur={() => setTouched(p => ({ ...p, email: true }))}
+                aria-invalid={Boolean(touched.email && fieldErrors.email)}
+                aria-describedby={touched.email && fieldErrors.email ? "email-error" : undefined}
                 className={cn(
                   "peer w-full border-b bg-transparent py-3 text-base text-zinc-900 placeholder-transparent outline-none transition-colors",
                   touched.email && fieldErrors.email ? "border-rose-400 focus:border-rose-500" : "border-zinc-300 focus:border-zinc-900"
@@ -249,7 +259,7 @@ export default function Contact() {
               </label>
               <span className={cn("pointer-events-none absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 ease-out group-focus-within:scale-x-100", touched.email && fieldErrors.email ? "bg-rose-500/70" : "bg-zinc-900/70")} />
               {touched.email && fieldErrors.email && (
-                <span className="absolute -bottom-5 left-0 text-[11px] text-rose-500 font-medium">{fieldErrors.email[0]}</span>
+                <span id="email-error" className="absolute -bottom-5 left-0 text-[11px] text-rose-500 font-medium">{fieldErrors.email[0]}</span>
               )}
             </div>
 
@@ -261,6 +271,8 @@ export default function Contact() {
                 value={contactState.message}
                 onChange={(e) => updateContactField("message", e.target.value)}
                 onBlur={() => setTouched(p => ({ ...p, message: true }))}
+                aria-invalid={Boolean(touched.message && fieldErrors.message)}
+                aria-describedby={touched.message && fieldErrors.message ? "message-error" : undefined}
                 rows={4}
                 className={cn(
                   "peer w-full border-b bg-transparent py-3 text-base text-zinc-900 placeholder-transparent outline-none transition-colors resize-none",
@@ -279,7 +291,7 @@ export default function Contact() {
               </label>
               <span className={cn("pointer-events-none absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 ease-out group-focus-within:scale-x-100", touched.message && fieldErrors.message ? "bg-rose-500/70" : "bg-zinc-900/70")} />
               {touched.message && fieldErrors.message && (
-                <span className="absolute -bottom-5 left-0 text-[11px] text-rose-500 font-medium">{fieldErrors.message[0]}</span>
+                <span id="message-error" className="absolute -bottom-5 left-0 text-[11px] text-rose-500 font-medium">{fieldErrors.message[0]}</span>
               )}
             </div>
 

@@ -37,7 +37,7 @@ export default function Experience() {
               <ul className="space-y-2 text-sm leading-relaxed text-zinc-600">
                 {item.outcomes.map((outcome) => (
                   <li key={outcome} className="flex items-start gap-3">
-                    <ExpBulletPoint className="mt-1 bg-zinc-400" />
+                    <ExpBulletPoint className="bg-zinc-400" />
                     <span>{outcome}</span>
                   </li>
                 ))}

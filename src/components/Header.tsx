@@ -1,6 +1,6 @@
 "use client";
 
-import { RefObject, MutableRefObject } from "react";
+import { RefObject } from "react";
 import { siteContent } from "@/data/site-content";
 
 interface NavItem {
@@ -18,7 +18,7 @@ interface HeaderProps {
   navUnderlineStyle: { left: number; width: number; opacity: number };
   navPhotoAnchorRef: RefObject<HTMLSpanElement | null>;
   navListRef: RefObject<HTMLUListElement | null>;
-  navLinkRefs: MutableRefObject<Record<string, HTMLAnchorElement | null>>;
+  navLinkRefs: RefObject<Record<string, HTMLAnchorElement | null>>;
 }
 
 export default function Header({
@@ -34,7 +34,7 @@ export default function Header({
 }: HeaderProps) {
   return (
     <header className={`fixed top-0 z-50 w-full border-b transition-colors ${theme === "dark" ? "bg-zinc-950/35 backdrop-blur-sm border-zinc-800/70" : "bg-[#f9fafb]/80 backdrop-blur-md border-zinc-200"}`}>
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 md:px-8">
+      <nav aria-label="Primary" className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 md:px-8">
         <a
           href="#hero"
           onClick={(e) => {

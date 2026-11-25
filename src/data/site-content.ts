@@ -22,9 +22,9 @@ export const siteContent = {
     name: "Kedar Mane",
     role: "AI/ML & Software Development",
     headline:
-      "Curious about data, driven by code, building across the tech stack",
+      "Building intelligent solutions with AI, ML, and software.",
     summary:
-      "I’m a 4th-year B.Tech student exploring AI/ML and software development, building practical projects across machine learning, backend systems, APIs, and databases.",
+      "Software Developer focused on AI/ML and generative AI, building practical applications across backend systems, REST APIs, and databases to solve real-world problems.",
     availability:
       "Actively building data science capabilities through hands-on projects.",
     recruiterCta: "/resume.pdf",
@@ -36,16 +36,16 @@ export const siteContent = {
     "FastAPI Deployments",
   ],
   snapshot: [
-    { label: "Role Focus", value: "Data Science • Applied ML" },
-    { label: "Primary Stack", value: "Python • TensorFlow • Scikit-learn" },
-    { label: "Delivery Style", value: "Data-driven, deployable, analytical" },
-    { label: "Availability", value: "Open to opportunities" },
+    { label: "Role Focus", value: "AI/ML • Software Development" },
+    { label: "Primary Stack", value: "Python • TensorFlow • Scikit-learn • JS" },
+    { label: "Engineering Approach", value: "Data-driven • Problem-solving • Production-focused" },
+    { label: "Availability", value: "Open to full-time opportunities" },
   ],
   experience: [
     {
       company: "Udyog Suvidha Kendra (USK)",
       role: "Backend Developer Intern (Paid Internship)",
-      period: "Oct 2026 - Present",
+      period: "Oct 2026 - Nov 2026",
       outcomes: [
         "Developing backend services and RESTful APIs for practical applications.",
         "Working with databases, SQL queries, and backend integrations.",
@@ -111,15 +111,6 @@ export const siteContent = {
         "Completed AI-ML workshop curriculum encompassing advanced data structures.",
       ],
     },
-    {
-      company: "Hackathons",
-      role: "Participant",
-      period: "Ongoing",
-      outcomes: [
-        "Participated in techfest IIT Bombay Datathon.",
-        "Regular participant in competitive college-level Hackathons.",
-      ],
-    },
   ] as ExperienceItem[],
   projects: [
     {
@@ -137,7 +128,7 @@ export const siteContent = {
       id: "LifeScreen-Analytics",
       title: "LifeScreen Analytics",
       impact:
-        "A web application that analyzes smartphone usage patterns and predicts the risk of mobile addiction using machine learning..",
+        "A web application that analyzes smartphone usage patterns and predicts the risk of mobile addiction using machine learning.",
       tags: ["ML", "Data Analysis", "Web App"],
       featured: true,
       projectSlug: "lifescreen-analytics",
@@ -228,15 +219,18 @@ export const siteContent = {
     description:
       "I enjoy solving problems through code and exploring how technology can turn ideas into practical solutions. From AI/ML and data analysis to backend development, APIs, and databases, I focus on building projects that are useful, reliable, and easy to work with.",
     workingStyle: [
-      "Understand the data deeply before modeling.",
-      "Prefer clean, explainable models when possible.",
-      "Ship complete solutions, bridging ML with web APIs.",
+      "Understand the problem and data before choosing an approach.",
+      "Build, evaluate, and improve models through experimentation.",
+      "Focus on practical, reliable, and explainable solutions.",
+      "Bridge AI/ML with software engineering to build deployable applications.",
+      "Write clean, maintainable code and prioritize real-world usability.",
     ],
     strengths: [
-      "Data Analysis (Pandas, NumPy)",
-      "Model Training (Scikit-Learn, TF)",
-      "API Deployment (FastAPI, Flask)",
-      "Data Visualization (Matplotlib, Seaborn)",
+      "Machine Learning: Model Development, Training & Evaluation",
+      "Data Science: Data Analysis, Pandas, NumPy",
+      "Generative AI: LLMs, RAG, AI-powered Applications",
+      "Software Engineering: Python, REST APIs, FastAPI, Flask",
+      "Deep Learning: TensorFlow, Scikit-learn",
     ],
   },
   contact: {

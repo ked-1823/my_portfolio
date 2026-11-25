@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/images/400x400.jpg", sizes: "180x180", type: "image/jpeg" }],
   },
   openGraph: {
-    title: "Kedar Mane | Data Science & Machine Learning",
+    title: "Kedar Mane | AI/ML & Software Development",
     description: "Portfolio of Kedar Mane featuring Data Science, Machine Learning, NLP, and computer vision projects.",
     type: "website",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kedar Mane | Data Science & Machine Learning",
+    title: "Kedar Mane | AI/ML & Software Development",
     description: "Portfolio of Kedar Mane featuring Data Science, Machine Learning, NLP, and computer vision projects.",
     images: ["/images/og-kedar.svg"],
   },

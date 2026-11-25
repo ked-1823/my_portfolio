@@ -21,14 +21,6 @@ const MOTION = {
   dockExitPx: 24,
   dockTransitionMs: 520,
   dockEmphasisMs: 420,
-  revealDurationMs: 780,
-  headingDurationMs: 560,
-  bulletDurationMs: 360,
-  bulletStaggerMs: 35,
-  bulletStaggerMaxMs: 280,
-  projectStaggerMs: 80,
-  projectStaggerMaxMs: 520,
-  standardEasing: "cubic-bezier(0.22, 1, 0.36, 1)",
 };
 
 const THEME_STORAGE_KEY = "portfolio-theme";
@@ -99,6 +91,49 @@ export default function Home() {
   }, [theme]);
 
   useEffect(() => {
+    const updatePhotoPosition = (forceUpdate = false) => {
+      const enterDockY = Math.max(MOTION.dockEnterMinPx, window.innerHeight * MOTION.dockEnterViewportRatio);
+      const exitDockY = MOTION.dockExitPx;
+      const shouldDockPhoto = isPhotoDockedRef.current
+        ? window.scrollY > exitDockY
+        : window.scrollY > enterDockY;
+      isPhotoDockedRef.current = shouldDockPhoto;
+
+      const navAnchor = navPhotoAnchorRef.current;
+      const heroAnchor = heroPhotoAnchorRef.current;
+      if (navAnchor && heroAnchor) {
+        const dockChanged = lastDockStateRef.current === null || lastDockStateRef.current !== shouldDockPhoto;
+        if (dockChanged || forceUpdate) {
+          const navRect = navAnchor.getBoundingClientRect();
+          const heroRect = heroAnchor.getBoundingClientRect();
+          const targetRect = shouldDockPhoto ? navRect : heroRect;
+
+          setPhotoMorphStyle({
+            x: targetRect.left,
+            y: targetRect.top,
+            size: targetRect.width,
+            opacity: 1,
+          });
+
+          if (dockChanged) {
+            if (shouldDockPhoto) {
+              setIsDockEmphasized(true);
+              if (dockPolishTimeoutRef.current) {
+                window.clearTimeout(dockPolishTimeoutRef.current);
+              }
+              dockPolishTimeoutRef.current = window.setTimeout(() => {
+                setIsDockEmphasized(false);
+              }, MOTION.dockEmphasisMs);
+            } else {
+              setIsDockEmphasized(false);
+            }
+
+            lastDockStateRef.current = shouldDockPhoto;
+          }
+        }
+      }
+    };
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight * 0.4;
       const totalScrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -113,45 +148,8 @@ export default function Home() {
         setHasUserScrolled(true);
       }
 
-      const enterDockY = Math.max(MOTION.dockEnterMinPx, window.innerHeight * MOTION.dockEnterViewportRatio);
-      const exitDockY = MOTION.dockExitPx;
-      const shouldDockPhoto = isPhotoDockedRef.current
-        ? window.scrollY > exitDockY
-        : window.scrollY > enterDockY;
-      isPhotoDockedRef.current = shouldDockPhoto;
+      updatePhotoPosition(false);
 
-      const navAnchor = navPhotoAnchorRef.current;
-      const heroAnchor = heroPhotoAnchorRef.current;
-      if (navAnchor && heroAnchor) {
-        const dockChanged = lastDockStateRef.current === null || lastDockStateRef.current !== shouldDockPhoto;
-        if (dockChanged) {
-          const navRect = navAnchor.getBoundingClientRect();
-          const heroRect = heroAnchor.getBoundingClientRect();
-          const targetRect = shouldDockPhoto ? navRect : heroRect;
-
-          setPhotoMorphStyle({
-            x: targetRect.left,
-            y: targetRect.top,
-            size: targetRect.width,
-            opacity: 1,
-          });
-
-          if (shouldDockPhoto) {
-            setIsDockEmphasized(true);
-            if (dockPolishTimeoutRef.current) {
-              window.clearTimeout(dockPolishTimeoutRef.current);
-            }
-            dockPolishTimeoutRef.current = window.setTimeout(() => {
-              setIsDockEmphasized(false);
-            }, MOTION.dockEmphasisMs);
-          } else {
-            setIsDockEmphasized(false);
-          }
-
-          lastDockStateRef.current = shouldDockPhoto;
-        }
-      }
-      
       let currentSection = "hero" as (typeof sectionIds)[number];
       
       for (const id of sectionIds) {
@@ -166,13 +164,18 @@ export default function Home() {
       setActiveSection(currentSection);
     };
 
+    const handleResize = () => {
+      updatePhotoPosition(true);
+      handleScroll();
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
+    window.addEventListener("resize", handleResize);
     handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("resize", handleResize);
 
 
 
@@ -234,7 +237,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen selection:bg-zinc-200">
+    <main className="relative min-h-screen overflow-x-clip selection:bg-zinc-200 dark:selection:bg-zinc-700 dark:selection:text-zinc-100">
       <a
         href="#main-content"
         className="skip-link"
@@ -362,7 +365,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>Built with Next.js</span>
             <span aria-hidden="true">&bull;</span>
-            <span>Last updated: Mar 2026</span>
+            <span>Last updated: Nov 2026</span>
             <span aria-hidden="true">&bull;</span>
             <span>
               Background pattern powered by {" "}

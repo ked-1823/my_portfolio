@@ -82,7 +82,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </header>
 
         <div
-          className="space-y-6 leading-relaxed [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_p]:text-zinc-700 [&_p]:dark:text-zinc-300 [&_ul]:ml-6 [&_ul]:list-disc [&_ol]:ml-6 [&_ol]:list-decimal [&_li]:mt-1 [&_a]:underline [&_a]:underline-offset-4"
+          className="space-y-6 leading-relaxed [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:font-semibold [&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_p]:text-zinc-700 [&_p]:dark:text-zinc-300 [&_ul]:ml-6 [&_ul]:list-disc [&_ol]:ml-6 [&_ol]:list-decimal [&_li]:mt-1 [&_a]:underline [&_a]:underline-offset-4 [&_hr]:my-8 [&_hr]:border-zinc-200 [&_hr]:dark:border-zinc-800 [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:border [&_pre]:border-zinc-200 [&_pre]:bg-zinc-50 [&_pre]:p-4 [&_pre]:text-sm [&_pre]:dark:border-zinc-800 [&_pre]:dark:bg-zinc-900 [&_code]:rounded [&_code]:bg-zinc-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:dark:bg-zinc-800 [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse [&_th]:border [&_th]:border-zinc-200 [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:text-sm [&_th]:font-semibold [&_th]:dark:border-zinc-800 [&_td]:border [&_td]:border-zinc-200 [&_td]:px-3 [&_td]:py-2 [&_td]:text-sm [&_td]:dark:border-zinc-800"
         >
           {content}
         </div>
